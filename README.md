@@ -7,8 +7,8 @@ I use [MaterializeCSS](http://materializecss.com) for the render.
 
 Todo list:
 - [x] User system
-- [-] Admin system (In Progress)
-- [-] Forum: (In progress)
+- [ ] Admin system (In Progress)
+- [ ] Forum: (In progress)
 - [ ] Issues system (Coming later)
 - [ ] Notification system (Coming later)
 - [ ] Ban and Ban temp system ?
