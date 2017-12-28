@@ -1,0 +1,54 @@
+<template name="admin_dashboard">
+	{{ setTitle "Administration" }}
+	<div class="container">
+        <div class="section">
+            <div class="row">
+            	<div class="row col offset-s1 s11">
+            		<h4>Administration</h4>
+
+					<div class="row">
+						<div class="col s12 m6 l4">
+							<a class="dashboard-links" href="{{pathFor route='admin.users'}}">
+								<div class="card hoverable">
+									<div class="card-content">
+										<div class="center">
+											<i class="material-icons grey-text text-darken-1 large center valign-wrapper">people</i>
+										</div>
+										<span class="card-title center">Utilisateurs</span>
+									</div>
+								</div>
+							</a>
+						</div>
+
+						<div class="col s12 m6 l4">
+							<a  class="dashboard-links">
+								<div class="card hoverable">
+									<div class="card-content">
+										<div class="center">
+											<i class="material-icons grey-text text-darken-1 large center valign-wrapper">subject</i>
+										</div>
+										<span class="card-title center">Posts</span>
+									</div>
+								</div>
+							</a>
+						</div>
+
+						<div class="col s12 m6 l4">
+							<a  class="dashboard-links">
+								<div class="card hoverable">
+									<div class="card-content">
+										<div class="center">
+											<i class="material-icons grey-text text-darken-1 large center valign-wrapper">bug_report</i>
+										</div>
+										<span class="card-title center">Problèmes</span>
+									</div>
+								</div>
+							</a>
+						</div>
+
+					</div>
+        		</div>
+        	</div>
+        </div>
+    </div>
+</template>

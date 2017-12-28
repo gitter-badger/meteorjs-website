@@ -1,0 +1,19 @@
+@import '{bricklou:materialize-addons}/sass/components/_color-variables.scss';
+@import '{bricklou:materialize-addons}/sass/components/_color-classes.scss';
+@import '{bricklou:materialize-addons}/sass/components/_variables.scss';
+
+#user_edit_btn:hover {
+	background-color: rgba(0, 0, 0, .15) !important;
+
+	i {
+		color: color("teal", "lighten-1") !important;
+	}
+}
+
+#delete_user_btn:hover {
+	background-color: rgba(0, 0, 0, .15) !important;
+
+	i {
+		color: color("red", "darken-1") !important;
+	}
+}

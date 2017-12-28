@@ -1,0 +1,82 @@
+<template name="register">
+    {{ setTitle "Inscription" }}
+
+
+    <div class="container">
+        <div class="section" id="register-block">
+            <div class="row">
+                <form class="col s12" id="register-step1">
+                    <h4>Inscription</h4>
+                    <div class="row col s12 offset-m1 m11">
+                        <div class="row">
+                            <div class="input-field col s12 l6">
+                                <input id="username" type="text" class="validate">
+                                <label for="username">Nom d'utilisateur</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 l6">
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Mot de passe</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <input id="confirme" type="password" class="validate"/>
+                                <label for="confirme">Confirmation du mot de passe</label>
+                            </div>
+                        </div>
+
+                        <button class="btn waves-effect waves-light col s12 offset-m3 m6 offset-l4 l4" type="submit">Suivant
+                            <i class="material-icons right">arrow_forward</i>
+                        </button>
+                    </div>
+                </form>
+
+                <form class="col s12" id="register-step2">
+                    <h4>Inscription</h4>
+                    <div class="row col s12 offset-m1 m11">
+                        <div class="row">
+                            <div class="input-field col s12 l6">
+                                <input id="firstName" type="text" class="validate">
+                                <label for="firstName">Prénom</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <input id="lastName" type="text" class="validate">
+                                <label for="lastName">Nom</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12 l6">
+                                <input id="birthDate" type="text" class="datepicker">
+                                <label for="birthDate">Date d'anniversaire</label>
+                            </div>
+
+                            <div class="input-field col s12 l6">
+                                <select id="gender">
+                                    <option value="" disabled selected>Choisissez une options</option>
+                                    <option value="Homme">Homme</option>
+                                    <option value="Femme">Femme</option>
+                                    <option value="None">Non définis/Autre</option>
+                                </select>
+                                <label>Genre</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <button class="btn waves-effect waves-light col s12 offset-m1 m4" id="back">Retour
+                                <i class="material-icons left">arrow_back</i>
+                            </button>
+                            <button class="btn waves-effect waves-light col s12 offset-m1 m4" id="submit">S'inscrire
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>
