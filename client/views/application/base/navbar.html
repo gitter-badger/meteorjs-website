@@ -9,6 +9,7 @@
           {{#if isAdmin currentUser }}
             <li><a href="{{pathFor route='admin.dashboard'}}">Administration</a></li>
           {{/if}}
+          <li><a href="{{ pathFor route='forum.categories'}}">Forum</a></li>
           {{> user_dropdow }}
         {{else}}
           <li><a href="{{pathFor route='user.register'}}">S'inscrire</a></li>
@@ -22,6 +23,7 @@
           {{#if isAdmin currentUser }}
             <li><a href="{{pathFor route='admin.dashboard'}}">Administration</a></li>
           {{/if}}
+          <li><a href="{{ pathFor route='forum.categories'}}">Forum</a></li>
           {{> user_dropdown_sidenav }}
         {{else}}
           <li><a href="{{pathFor route='user.register'}}">S'inscrire</a></li>

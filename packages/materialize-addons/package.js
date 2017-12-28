@@ -3,7 +3,7 @@
 Package.describe({
   name: 'bricklou:materialize-addons',
   summary: 'Materialize addons : Created to have an free access without bugs on sass files.',
-  version: '1.0',
+  version: '1.0.0',
 });
 
 
