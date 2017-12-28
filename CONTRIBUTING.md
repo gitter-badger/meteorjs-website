@@ -1,4 +1,4 @@
-##Contributing to my meteor site
+## Contributing to my meteor site
 
 ### How to contribute ?
 
@@ -35,7 +35,7 @@ Thanks!
 
 You can join my dedicated [Discord](https://discord.gg/cpzC8FP).
 
-/!\ Si vous êtes français, n'hésité pas poster les messages en français.
+:warning: Si vous êtes français, n'hésité pas me contacter en français.
 
 Sources:
 - https://materializecss.com/
