@@ -12,6 +12,7 @@ Todo list:
 - [ ] Issues system (Coming later)
 - [ ] Notification system (Coming later)
 - [ ] Ban and Ban temp system ?
+- [ ] Public and private chat system and chat linked with a Discord server ?
 
 You join the official Discord too: https://discord.gg/cpzC8FP.
 
