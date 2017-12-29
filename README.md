@@ -13,5 +13,6 @@ Todo list:
 - [ ] Notification system (Coming later)
 - [ ] Ban and Ban temp system ?
 
-You join the official Discord too: https://discord.gg/cpzC8FP
+You join the official Discord too: https://discord.gg/cpzC8FP.
+
 And view the [CONTRIBUTING.md](https://github.com/Bricklou/meteor-website/blob/master/CONTRIBUTING.md).
