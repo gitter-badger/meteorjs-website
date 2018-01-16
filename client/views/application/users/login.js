@@ -1,13 +1,13 @@
 import { Materialize } from 'meteor/materialize:materialize';
 
 Template.login.events({
-	"submit #login": function() {
+	"submit #login": function (event) {
 		event.preventDefault();
 
 		var user = $('#email').val();
 		var password = $('#password').val();
 
-		Meteor.loginWithPassword(user, password, function(err) {
+		Meteor.loginWithPassword(user, password, function (err) {
 			if (err) {
 				Utils.ToastFieldError(err.reason);
 			}
@@ -18,6 +18,6 @@ Template.login.events({
 	}
 });
 
-Template.login.onRendered(function() {
+Template.login.onRendered(function () {
 	Materialize.updateTextFields();
 })

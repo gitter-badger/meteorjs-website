@@ -14,6 +14,7 @@
     		        </h4>
 
     		        {{> delete_user_modal_admin }}
+    		        {{> update_user_modal_admin }}
 
     		        <div class="row">
 						<div class="col s11 offset-s1">
@@ -30,12 +31,18 @@
 							<ul class="collapsible" data-collapsible="accordion">
 								{{#EasySearch.Each index=usersIndex}}
 									<li>
-										<div class="collapsible-header">
+										<div class="collapsible-header valign-wrapper">
 											<i class="material-icons">people</i>{{ username }}
+											{{#if emails.[0].verified }}
+		            						    <i class="material-icons admin_user_verified_icon green-text text-darken-1">verified_user</i>
+		    						        {{/if }}
 										</div>
 										<div class="collapsible-body">
 											<a href="#" class="delete_user_btn_admin btn-flat waves-effect btn-floating right">
 												<i class="material-icons grey-text text-darken-1">delete</i>
+											</a>
+											<a href="#" class="update_user_btn_admin btn-flat waves-effect btn-floating right">
+												<i class="material-icons grey-text text-darken-1">edit</i>
 											</a>
 											<div class="row">
 												<div class="col s12 m11 offset-m1">
@@ -45,16 +52,24 @@
         									        </div>
 													<div class="col s12 m12">
 														<div class="col l3 s12" style='font-weight: bold;'>Rôle:</div>
-													    <div class="col l9 s11 offset-s1">
-													    	{{ roles.[0] }}
+													    <div class="col l9 s11 offset-s1 input-field">
+															<select id="role" class="col s12 l6" {{currentUserDisable this._id}}>
+																{{#each rolesList}}
+																	{{#if compareSelection ../username this.name}}
+																		<option value="{{ this.name }}" selected>{{this.name}}</option>
+																	{{else}}
+																		<option value="{{ this.name }}">{{this.name}}</option>
+																	{{/if}}
+																{{/each}}
+															</select>
 													    </div>
 													</div>
 													<div class="col s12 m12">
 														<div class="col l3 s12" style='font-weight: bold;'>Email:</div>
-													    <div class="col l9 s11 offset-s1">
+													    <div class="col l4 s6 offset-s1">
 													    	{{ emails.[0].address }}
 													    	{{#if emails.[0].verified }}
-    	        		            						    <i class="material-icons">verified_user</i>
+    	        		            						    <span><i class="material-icons green-text text-darken-1 tiny">verified_user</i></span>
         	    		    						        {{/if }}
 													    </div>
     		    	    							</div>
@@ -72,21 +87,6 @@
 													<div class="col s12 m12">
 														<div class="col l3 s12" style='font-weight: bold;'>Date d'anniversaire:</div>
 														<div class="col l9 s11 offset-s1">{{ profile.birthDate }}</div>
-													</div>
-
-													<div class="col s12 m12">
-														<div class="col l3 s12" style='font-weight: bold;'>Sexe:</div>
-														<div class="col l9 s11 offset-s1">
-															{{#if compare profile.gender "H"}}
-																Homme
-															{{ else }}
-																{{#if compare profile.gender "F"}}
-																	Femme
-																{{ else }}
-																	Non définis/Autre
-																{{/if}}
-															{{/if}}
-														</div>
 													</div>
 												</div>
 											</div>
@@ -122,13 +122,65 @@
 
             <div class="row">
                 <div class="row col s12 offset-m1 m11">
-                    <p>Êtes-vous {{#if compare user.profile.gender "F"}}sûre{{else}}sûr{{/if}} de vouloir supprimer le compte de {{ user }} ?</p>
+                    <p>Êtes-vous sûr(e) de vouloir supprimer le compte de {{ user.username }} ?</p>
                 </div>
             </div>
         </div>
         <div class="modal-footer">
             <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat ">Non</a>
             <a href="#" id="apply_user_delete_admin" class="modal-action modal-close waves-effect waves-green btn-flat ">Oui</a>
+        </div>
+    </div>
+</template>
+
+<template name="update_user_modal_admin">
+    <div id="update_user_modal_admin" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h5>Edition du compte de {{ updating_user.username }}</h5>
+
+            <div class="row">
+                <div class="row col s12 offset-m1 m11">
+                    <p>Vous pouvez changer toute les informations à partir de cette interface.</p>
+                    <div class="row">
+                        <div class="input-field col s12 l6">
+                            <input id="username" type="text" value="{{ updating_user.username }}">
+                            <label for="username">Nom d'utilisateur</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 l8">
+                            <input id="email" type="email" value="{{ updating_user.emails.[0].address}}">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider row col s12"></div>
+
+                <div class="row col s12 offset-m1 m11">
+                    <div class="row">
+                        <div class="input-field col s12 l6">
+                            <input id="firstName" type="text" value="{{ updating_user.profile.firstName }}">
+                            <label for="firstName">Prénom</label>
+                        </div>
+                        <div class="input-field col s12 l6">
+                            <input id="lastName" type="text" value="{{ updating_user.profile.lastName }}">
+                            <label for="lastName">Nom</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12 l6">
+                            <input id="birthDate" type="text" class="datepicker" value="{{ updating_user.profile.birthDate }}">
+                            <label for="birthDate">Date d'anniversaire</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="modal-action modal-close waves-effect waves-red btn-flat ">Annuler</a>
+            <a href="#" id="apply_user_update_admin" class="modal-action modal-close waves-effect waves-green btn-flat ">OK</a>
         </div>
     </div>
 </template>

@@ -17,27 +17,6 @@ Globals.schemas.UserProfile = new SimpleSchema({
         optional: true,
         label: "Date d'anniversaire"
     },
-    gender: {
-        type: String,
-        allowedValues: ['M', 'F'],
-        optional: true,
-        label: "Genre",
-        autoform: {
-            afFieldInput: {
-                type: "select2", // type de champ particulier, voir plus bas
-                options: [
-                    {
-                        value: "M",
-                        label: "Homme"
-                      },
-                    {
-                        value: "F",
-                        label: "Femme"
-                      }
-                ]
-            }
-        }
-    }
 });
 
 // Schéma principal
@@ -61,7 +40,7 @@ Globals.schemas.User = new SimpleSchema({
         type: String,
         label: "Confirmation",
         optional: true,
-        custom: function() {
+        custom: function () {
             if (this.value !== this.field('password').value) {
                 return "passwordMissmatch";
             }
@@ -91,7 +70,7 @@ Globals.schemas.User = new SimpleSchema({
     },
     createdAt: {
         type: Date,
-        autoValue: function() {
+        autoValue: function () {
             if (this.isInsert) {
                 return new Date;
             }
@@ -126,12 +105,12 @@ Globals.schemas.User = new SimpleSchema({
 });
 
 Meteor.users.allow({
-    update: function(userId, doc, fields, modifier) {
+    update: function (userId, doc, fields, modifier) {
         //if (userId == doc.userId)
         return true;
     },
 
-    remove: function(userId, doc, fields, modifier) {
+    remove: function (userId, doc, fields, modifier) {
         return true;
     }
 });

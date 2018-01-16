@@ -31,3 +31,17 @@
 		}
 	}
 }
+
+.update_user_btn_admin {
+	&:hover {
+		background: rgba(0, 0, 0, .15) !important;
+
+		i {
+			color: color("teal", "lighten-1") !important;
+		}
+	}
+}
+
+.admin_user_verified_icon {
+	font-size: 1.2rem !important;
+}

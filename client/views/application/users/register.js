@@ -1,5 +1,5 @@
 Template.register.events({
-	"submit #register-step1": function(e) {
+	"submit #register-step1": function (e) {
 		e.preventDefault();
 
 		let localUsername = $('#username').val();
@@ -33,13 +33,13 @@ Template.register.events({
 		}
 	},
 
-	"click #back": function(e) {
+	"click #back": function (e) {
 		e.preventDefault();
 		$("#register-step1").show();
 		$("#register-step2").hide();
 	},
 
-	"click #submit": function(e) {
+	"click #submit": function (e) {
 		e.preventDefault();
 
 		Accounts.createUser({
@@ -51,9 +51,8 @@ Template.register.events({
 				firstName: $('#firstName').val(),
 				lastName: $('#lastName').val(),
 				birthDate: $('#birthDate').val(),
-				gender: $('#gender').val()
 			}
-		}, function(err) {
+		}, function (err) {
 			if (err) {
 				Utils.ToastFieldError(err.reason)
 			}
@@ -64,11 +63,11 @@ Template.register.events({
 	}
 });
 
-Template.register.onRendered(function() {
+Template.register.onRendered(function () {
 	$("#register-step1").show();
 	$("#register-step2").hide();
 
-	$(document).ready(function() {
+	$(document).ready(function () {
 		$('select').material_select();
 	});
 

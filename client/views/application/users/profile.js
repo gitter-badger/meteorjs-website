@@ -1,26 +1,23 @@
 import { Materialize } from 'meteor/materialize:materialize';
 
 Template.user_profile.events({
-    "click #user_edit_btn": function() {
+    "click #user_edit_btn": function () {
         $('#edit_user_modal').modal('open');
     },
 
-    "click #delete_user_btn": function() {
+    "click #delete_user_btn": function () {
         $('#delete_user_modal').modal('open');
     }
 });
 
-Template.user_profile.onRendered(function() {
-    $('#edit_user_modal').modal({
-        dismissible: true
-    });
-    $('#delete_user_modal').modal({
+Template.user_profile.onRendered(function () {
+    $('#edit_user_modal, #delete_user_modal').modal({
         dismissible: true
     });
 });
 
-Template.edit_user_modal.onRendered(function() {
-    $(document).ready(function() {
+Template.edit_user_modal.onRendered(function () {
+    $(document).ready(function () {
         $('select').material_select();
     });
 
@@ -54,7 +51,7 @@ Template.edit_user_modal.onRendered(function() {
 });
 
 Template.edit_user_modal.events({
-    "keypress input": function(event) {
+    "keypress input": function (event) {
         if (event.keyCode == 13) {
             event.stopPropagation();
             $("#apply_user_edit").click();
@@ -62,7 +59,7 @@ Template.edit_user_modal.events({
         }
     },
 
-    "click #apply_user_edit": function() {
+    "click #apply_user_edit": function () {
         let data = {
             username: $('input#username').val(),
             email: $('input#email').val(),
@@ -70,16 +67,17 @@ Template.edit_user_modal.events({
                 firstName: $('input#firstName').val(),
                 lastName: $('input#lastName').val(),
                 birthDate: $('input#birthDate').val(),
-                gender: $('input#gender').val(),
             }
         };
         Meteor.users.update({ _id: Meteor.userId() }, {
             $set: {
                 username: data.username,
                 email: data.email,
-                profile: data.profile
+                "profile.firstName": data.profile.firstName,
+                "profile.lastName": data.profile.lastName,
+                "profile.birthDate": data.profile.birthDate,
             }
-        }, function(err) {
+        }, function (err) {
             if (err) {
                 Utils.ToastFieldError("Erreur: " + err);
             }
@@ -92,7 +90,7 @@ Template.edit_user_modal.events({
 
 
 Template.delete_user_modal.events({
-    "keypress #delete_user_modal input": function(event) {
+    "keypress #delete_user_modal input": function (event) {
         if (event.keyCode == 13) {
             event.stopPropagation();
             $("#apply_user_delete").click();
@@ -100,8 +98,8 @@ Template.delete_user_modal.events({
         }
     },
 
-    "click #apply_user_delete": function() {
-        Meteor.users.remove({ _id: Meteor.userId() }, function(err) {
+    "click #apply_user_delete": function () {
+        Meteor.users.remove({ _id: Meteor.userId() }, function (err) {
             if (err) {
                 Utils.ToastFieldError("Erreur: " + err);
             }
