@@ -14,6 +14,6 @@ Todo list:
 - [ ] Ban and Ban temp system ?
 - [ ] Public and private chat system and chat linked with a Discord server ?
 
-You join the official Discord too: https://discord.gg/cpzC8FP.
+You can join the official Discord too: https://discord.gg/cpzC8FP.
 
 And view the [CONTRIBUTING.md](https://github.com/Bricklou/meteor-website/blob/master/CONTRIBUTING.md).
