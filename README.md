@@ -1,4 +1,4 @@
-# meteor-website
+# meteorjs-website
 This project is my website sources. It use Meteor.JS and Materialize CSS.
 
 You can propose improvements and inspire you with what I did.
