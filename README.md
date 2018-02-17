@@ -1,4 +1,6 @@
 # meteorjs-website
+
+[![Join the chat at https://gitter.im/meteorjs-website/Lobby](https://badges.gitter.im/meteorjs-website/Lobby.svg)](https://gitter.im/meteorjs-website/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 This project is my website sources. It use Meteor.JS and Materialize CSS.
 
 You can propose improvements and inspire you with what I did.
